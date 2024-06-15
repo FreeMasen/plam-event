@@ -1,8 +1,8 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 
-use atom_syndication::{Content, FixedDateTime, Link, LinkBuilder};
+use atom_syndication::{FixedDateTime, LinkBuilder};
+use chrono::{FixedOffset, TimeZone, Utc};
 use serde::Serialize;
-use tokio::{io::AsyncWriteExt, process::Command};
 
 #[tokio::main]
 async fn main() {
@@ -38,8 +38,9 @@ async fn main() {
 fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Error>> {
     let mut ch = atom_syndication::FeedBuilder::default();
     ch.title("Power Lifting America Events")
-        .link(LinkBuilder::default().href("http://gh.freemasen.com/plam-event").build()
-    );
+        .link(LinkBuilder::default().href("http://gh.freemasen.com/plam-event")
+        .build()
+    ).updated(Utc::now());
         
     for ev in events.values() {
         let item = atom_syndication::EntryBuilder::default()
@@ -49,7 +50,7 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
             .content(
                 atom_syndication::ContentBuilder::default()
                     .lang("en-us".to_string())
-                    .base(ev.url.clone())
+                    // .base(ev.url.clone())
                     .value(ev.location.clone())
                     .build())
             .build();
