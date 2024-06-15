@@ -38,7 +38,7 @@ async fn main() {
 fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Error>> {
     let mut ch = atom_syndication::FeedBuilder::default();
     ch.title("Power Lifting America Events")
-        .link(LinkBuilder::default().href("https://github.com/freemasen/plam-event").build()
+        .link(LinkBuilder::default().href("http://gh.freemasen.com/plam-event").build()
     );
         
     for ev in events.values() {
