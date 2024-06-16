@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
-use atom_syndication::{FixedDateTime, LinkBuilder};
-use chrono::{FixedOffset, TimeZone, Utc};
+use atom_syndication::{FixedDateTime, LinkBuilder, WriteConfig};
+use chrono::{DateTime, Utc};
 use serde::Serialize;
 
 #[tokio::main]
@@ -31,6 +31,7 @@ async fn main() {
             }
         }
     }
+    std::fs::write("events.json", serde_json::to_string_pretty(&events).unwrap().as_bytes()).unwrap();
     tokio::fs::create_dir_all("public").await.ok();
     to_rss(&events).unwrap();
 }
@@ -38,21 +39,33 @@ async fn main() {
 fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Error>> {
     let mut ch = atom_syndication::FeedBuilder::default();
     ch.title("Power Lifting America Events")
-        .link(LinkBuilder::default().href("http://gh.freemasen.com/plam-event")
-        .build()
-    ).updated(Utc::now());
-        
+        .link(
+            LinkBuilder::default()
+                .href("http://gh.freemasen.com/plam-event/atom.xml")
+                .rel("self")
+                .build(),
+        )
+        .id("http://gh.freemasen.com/plam-event/atom.xml")
+        .updated(Utc::now());
+    let mut last_date = DateTime::from_timestamp(0, 0).expect("0 dt");
     for ev in events.values() {
+        let ev_date = ev.date();
+        if last_date < ev_date {
+            last_date = ev_date.into();
+        }
         let item = atom_syndication::EntryBuilder::default()
+            .id(&ev.uid)
             .title(ev.summary.clone())
-            .published(ev.date())
-            .updated(ev.date())
+            .published(ev_date)
+            .updated(ev_date)
+            .link(LinkBuilder::default().href(ev.url.to_string())
+            .rel("alternate").build())
             .content(
                 atom_syndication::ContentBuilder::default()
                     .lang("en-us".to_string())
-                    // .base(ev.url.clone())
-                    .value(ev.location.clone())
-                    .build())
+                    .value(ev.location())
+                    .build(),
+            )
             .build();
         ch.entry(item);
     }
@@ -63,14 +76,19 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
         .truncate(true)
         .open("./public/atom.xml")
         .unwrap();
-    ch.write_to(&mut f).unwrap();
+    ch.write_with_config(&mut f, WriteConfig {
+        indent_size: Some(4),
+        write_document_declaration: true,
+    }).unwrap();
     Ok(())
 }
 
-fn update_event(key: &str, value: &str, ev: &mut Event) 
-{
+fn update_event(key: &str, value: &str, ev: &mut Event) {
     const DATE_PREFIX: &str = "VALUE=DATE:";
-    let value = value.trim_start_matches(DATE_PREFIX).replace(" ", " ").to_string();
+    let value = value
+        .trim_start_matches(DATE_PREFIX)
+        .replace(" ", " ")
+        .to_string();
     match key {
         "UID" => ev.uid = value,
         "END" => ev.end = Some(value),
@@ -139,12 +157,103 @@ struct Event {
     pub description: String,
 }
 
+#[derive(Debug)]
+struct Address<'a> {
+    addr1: &'a str,
+    addr2: &'a str,
+    addr3: &'a str,
+    city: &'a str,
+    state: &'a str,
+    zip: &'a str,
+    country: &'a str,
+}
+
+impl<'a> Address<'a> {
+    fn from(s: &'a str) -> Option<Self> {
+        let mut ret = Self {
+            addr1: "",
+            addr2: "",
+            addr3: "",
+            city: "",
+            state: "",
+            zip: "",
+            country: "",
+        };
+        let segs = s.split("\\,").collect::<Vec<_>>();
+        for (i, seg) in segs.into_iter().rev().enumerate() {
+            let seg = seg.trim_matches('\\').trim();
+            match i {
+                0 => {
+                    ret.country = seg;
+                },
+                1 => {
+                    if !seg.trim().chars().all(|c| {
+                        if c.is_ascii_digit() {
+                            return true;
+                        }
+                        eprintln!("non digit: {c}");
+                        false
+                    }) {
+                        eprintln!("invalid zip: {}\n`{}`", seg, s);
+                        return None;
+                    }
+                    ret.zip = seg;
+                },
+                2 => {
+                    if seg.len() != 2 || !seg.chars().all(|c| c.is_ascii_uppercase()) {
+                        eprintln!("invalid state: `{}`\n`{}`", seg, s);
+                        return None;
+                    }
+                    ret.state = seg;
+                },
+                3 => {
+                    ret.city = seg;
+                },
+                4 => {
+                    ret.addr3 = seg;
+                },
+                5 => {
+                    ret.addr2 = seg;
+                },
+                6 => {
+                    ret.addr1 = seg;
+                }
+                _ => break,
+            }
+        }
+        Some(ret)
+    }
+}
+
+impl<'a> std::fmt::Display for Address<'a> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        if !self.addr1.is_empty() {
+            writeln!(f, "{}", self.addr1)?;
+        }
+        if !self.addr2.is_empty() {
+            writeln!(f, "{}", self.addr2)?;
+        }
+        if !self.addr3.is_empty() {
+            writeln!(f, "{}", self.addr3)?;
+        }
+        writeln!(f, "{}, {} {}", self.city, self.state, self.zip)
+    }
+}
+
 impl Event {
     fn date(&self) -> FixedDateTime {
         let year = &self.dtstamp[0..4];
         let month = &self.dtstamp[4..6];
         let day = &self.dtstamp[6..8];
-        let hour = &self.dtstamp[9..11];
+        let hour: &str = &self.dtstamp[9..11];
         FixedDateTime::parse_from_rfc3339(&format!("{year}-{month}-{day}T{hour}:00:00.0Z")).unwrap()
+    }
+
+    fn location(&self) -> String {
+        let Some(addr) = Address::from(&self.location) else {
+            eprintln!("invalid address: `{}`", self.location);
+            return self.location.to_string();
+        };
+        addr.to_string()
     }
 }
