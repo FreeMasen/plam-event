@@ -37,16 +37,20 @@ async fn main() {
 }
 
 fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Error>> {
-    let mut ch = atom_syndication::FeedBuilder::default();
-    ch.title("Power Lifting America Events")
+    let mut feed = atom_syndication::FeedBuilder::default();
+    let mut ch = rss::ChannelBuilder::default();
+    feed.title("Power Lifting America Events")
         .link(
             LinkBuilder::default()
                 .href("http://gh.freemasen.com/plam-event/atom.xml")
                 .rel("self")
                 .build(),
         )
-        .id("http://gh.freemasen.com/plam-event/atom.xml")
-        .updated(Utc::now());
+        .id("http://gh.freemasen.com/plam-event/atom.xml");
+    ch.title("Power Lifting America Events")
+        .last_build_date(Utc::now().format("%a, %d %b %y %H:%M UT").to_string())
+        .pub_date("31 Jan 01 00:00 UT".to_string())
+        .link("http://gh.freemasen.com/plam-event/atom.xml");
     let mut last_date = DateTime::from_timestamp(0, 0).expect("0 dt");
     for ev in events.values() {
         let ev_date = ev.date();
@@ -67,19 +71,37 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
                     .build(),
             )
             .build();
-        ch.entry(item);
+        feed.entry(item);
+        let entry = rss::ItemBuilder::default()
+            .content(format!("<p>{}</p>", ev.location()))
+            .title(format!("<h1>{}</h1>", ev.summary))
+            .description(format!("<h2>{}</h2>", ev.description))
+            .build();
+        ch.item(entry);
     }
-    let ch = ch.build();
+    if last_date == DateTime::from_timestamp(0, 0).expect("0 dt") {
+        last_date = Utc::now();
+    }
+    let feed = feed
+        .updated(last_date)
+        .build();
     let mut f = std::fs::File::options()
         .create(true)
         .write(true)
         .truncate(true)
         .open("./public/atom.xml")
         .unwrap();
-    ch.write_with_config(&mut f, WriteConfig {
+    let mut f2 = std::fs::File::options()
+        .create(true)
+        .write(true)
+        .truncate(true)
+        .open("./public/rss.xml")
+        .unwrap();
+    feed.write_with_config(&mut f, WriteConfig {
         indent_size: Some(4),
         write_document_declaration: true,
     }).unwrap();
+    ch.build().pretty_write_to(&mut f2, b' ', 4).unwrap();
     Ok(())
 }
 
