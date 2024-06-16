@@ -54,20 +54,22 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
     let mut last_date = DateTime::from_timestamp(0, 0).expect("0 dt");
     for ev in events.values() {
         let ev_date = ev.date();
-        if last_date < ev_date {
-            last_date = ev_date.into();
+        let published = ev.created();
+        if last_date < published {
+            last_date = published.into();
         }
         let item = atom_syndication::EntryBuilder::default()
             .id(&ev.url)
             .title(ev.summary.clone())
-            .published(ev_date)
-            .updated(ev_date)
+            .published(published)
+            .updated(published)
             .link(LinkBuilder::default().href(ev.url.to_string())
             .rel("alternate").build())
             .content(
                 atom_syndication::ContentBuilder::default()
                     .lang("en-us".to_string())
-                    .value(ev.location())
+                    .content_type("text".to_string())
+                    .value(format!("{ev_date}\n{}\n", ev.location()))
                     .build(),
             )
             .build();
@@ -264,11 +266,21 @@ impl<'a> std::fmt::Display for Address<'a> {
 
 impl Event {
     fn date(&self) -> FixedDateTime {
-        let year = &self.dtstamp[0..4];
-        let month = &self.dtstamp[4..6];
-        let day = &self.dtstamp[6..8];
-        let hour: &str = &self.dtstamp[9..11];
-        FixedDateTime::parse_from_rfc3339(&format!("{year}-{month}-{day}T{hour}:00:00.0Z")).unwrap()
+        Self::dt_from_str(&self.dtstamp)
+    }
+
+    fn created(&self) -> FixedDateTime {
+        Self::dt_from_str(&self.created)
+    }
+
+    fn dt_from_str(s: &str) -> FixedDateTime {
+        let year = &s[0..4];
+        let month = &s[4..6];
+        let day = &s[6..8];
+        let hour = &s[9..11];
+        let minute = &s[11..13];
+        let sec = &s[13..15];
+        FixedDateTime::parse_from_rfc3339(&format!("{year}-{month}-{day}T{hour}:{minute}:{sec}.0Z")).unwrap()
     }
 
     fn location(&self) -> String {
