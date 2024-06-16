@@ -58,7 +58,7 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
             last_date = ev_date.into();
         }
         let item = atom_syndication::EntryBuilder::default()
-            .id(&ev.uid)
+            .id(&ev.url)
             .title(ev.summary.clone())
             .published(ev_date)
             .updated(ev_date)
