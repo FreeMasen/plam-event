@@ -1,8 +1,10 @@
 use std::collections::HashMap;
 
-use atom_syndication::{CategoryBuilder, FixedDateTime, LinkBuilder, WriteConfig};
-use chrono::{DateTime, Datelike, Utc};
+use atom_syndication::{CategoryBuilder, FixedDateTime, LinkBuilder, Text, WriteConfig};
+use chrono::{DateTime, Datelike, FixedOffset, Local, Utc};
 use serde::Serialize;
+
+const HTML_TEMPLATE: &str = include_str!("template.html");
 
 #[tokio::main]
 async fn main() {
@@ -42,7 +44,6 @@ async fn main() {
 
 fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Error>> {
     let mut feed = atom_syndication::FeedBuilder::default();
-    let mut ch = rss::ChannelBuilder::default();
     feed.title("Power Lifting America Events")
         .link(
             LinkBuilder::default()
@@ -51,10 +52,6 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
                 .build(),
         )
         .id("http://gh.freemasen.com/plam-event/atom.xml");
-    ch.title("Power Lifting America Events")
-        .last_build_date(Utc::now().format("%a, %d %b %y %H:%M UT").to_string())
-        .pub_date("31 Jan 01 00:00 UT".to_string())
-        .link("http://gh.freemasen.com/plam-event/atom.xml");
     let mut last_date = DateTime::from_timestamp(0, 0).expect("0 dt");
     for ev in events.values() {
         let ev_date = ev.date();
@@ -73,11 +70,12 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
                     .rel("alternate")
                     .build(),
             )
+            .summary(Text::plain(ev.summary()))
             .content(
                 atom_syndication::ContentBuilder::default()
                     .lang("en-us".to_string())
-                    .content_type("text".to_string())
-                    .value(format!("{ev_date}\n{}\n", ev.location()))
+                    .content_type("html".to_string())
+                    .value(ev.content())
                     .build(),
             )
             .category(CategoryBuilder::default().term(ev.state()).build())
@@ -88,12 +86,6 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
             )
             .build();
         feed.entry(item);
-        let entry = rss::ItemBuilder::default()
-            .content(format!("<p>{}</p>", ev.location()))
-            .title(format!("<h1>{}</h1>", ev.summary))
-            .description(format!("<h2>{}</h2>", ev.description))
-            .build();
-        ch.item(entry);
     }
     if last_date == DateTime::from_timestamp(0, 0).expect("0 dt") {
         last_date = Utc::now();
@@ -105,12 +97,6 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
         .truncate(true)
         .open("./public/atom.xml")
         .unwrap();
-    let mut f2 = std::fs::File::options()
-        .create(true)
-        .write(true)
-        .truncate(true)
-        .open("./public/rss.xml")
-        .unwrap();
     feed.write_with_config(
         &mut f,
         WriteConfig {
@@ -119,7 +105,6 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
         },
     )
     .unwrap();
-    ch.build().pretty_write_to(&mut f2, b' ', 4).unwrap();
     Ok(())
 }
 
@@ -197,7 +182,7 @@ struct Event {
     pub description: String,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 struct Address<'a> {
     addr1: &'a str,
     addr2: &'a str,
@@ -289,6 +274,10 @@ impl Event {
         Self::dt_from_str(&self.created)
     }
 
+    fn address(&self) -> Address {
+        Address::from(&self.location).unwrap_or_default()
+    }
+
     fn state(&self) -> &str {
         let Some(addr) = Address::from(&self.location) else {
             eprintln!("invalid address: `{}`", self.location);
@@ -297,22 +286,41 @@ impl Event {
         addr.state
     }
 
-    fn dt_from_str(s: &str) -> FixedDateTime {
+    fn date_str_to_rfc_string(s: &str) -> String {
         let year = &s[0..4];
         let month = &s[4..6];
         let day = &s[6..8];
         let hour = &s[9..11];
         let minute = &s[11..13];
         let sec = &s[13..15];
-        FixedDateTime::parse_from_rfc3339(&format!("{year}-{month}-{day}T{hour}:{minute}:{sec}.0Z"))
-            .unwrap()
+        format!("{year}-{month}-{day}T{hour}:{minute}:{sec}.0Z")
     }
 
-    fn location(&self) -> String {
-        let Some(addr) = Address::from(&self.location) else {
-            eprintln!("invalid address: `{}`", self.location);
-            return self.location.to_string();
-        };
-        addr.to_string()
+    fn dt_from_str(s: &str) -> FixedDateTime {
+        FixedDateTime::parse_from_rfc3339(&Self::date_str_to_rfc_string(s)).unwrap()
+    }
+
+    fn summary(&self) -> String {
+        let dt = self.date().with_timezone(Local::now().offset());
+        format!("{}-{}-{} ({}) {}", dt.year(), dt.month(), dt.day(), self.state(), self.summary)
+    }
+
+    fn content(&self) -> String {
+        let addr = self.address();
+        html_escape::encode_text(
+            &HTML_TEMPLATE
+                .replace("{{event_name}}", &self.summary)
+                .replace(
+                    "{{event_date}}",
+                    &Self::date_str_to_rfc_string(&self.dtstamp),
+                )
+                .replace("{{address1}}", addr.addr1)
+                .replace("{{address2}}", addr.addr2)
+                .replace("{{address3}}", addr.addr3)
+                .replace("{{city}}", addr.city)
+                .replace("{{state}}", addr.state)
+                .replace("{{zip}}", addr.zip),
+        )
+        .to_string()
     }
 }
