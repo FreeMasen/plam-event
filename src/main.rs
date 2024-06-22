@@ -75,6 +75,7 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
                 atom_syndication::ContentBuilder::default()
                     .lang("en-us".to_string())
                     .content_type("html".to_string())
+                    .base(ev.url.to_string())
                     .value(ev.content())
                     .build(),
             )
