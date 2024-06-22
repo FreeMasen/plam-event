@@ -249,6 +249,16 @@ impl<'a> Address<'a> {
         }
         Some(ret)
     }
+
+    fn addr1(&self) -> Option<&str> {
+        (!self.addr1.is_empty()).then_some(self.addr1)
+    }
+    fn addr2(&self) -> Option<&str> {
+        (!self.addr2.is_empty()).then_some(self.addr2)
+    }
+    fn addr3(&self) -> Option<&str> {
+        (!self.addr3.is_empty()).then_some(self.addr3)
+    }
 }
 
 impl<'a> std::fmt::Display for Address<'a> {
@@ -308,20 +318,19 @@ impl Event {
 
     fn content(&self) -> String {
         let addr = self.address();
-        html_escape::encode_text(
-            &HTML_TEMPLATE
-                .replace("{{event_name}}", &self.summary)
-                .replace(
-                    "{{event_date}}",
-                    &Self::date_str_to_rfc_string(&self.dtstamp),
-                )
-                .replace("{{address1}}", addr.addr1)
-                .replace("{{address2}}", addr.addr2)
-                .replace("{{address3}}", addr.addr3)
-                .replace("{{city}}", addr.city)
-                .replace("{{state}}", addr.state)
-                .replace("{{zip}}", addr.zip),
-        )
-        .to_string()
+        let date = self.date();
+
+        HTML_TEMPLATE
+            .replace("{{event_name}}", &self.summary)
+            .replace(
+                "{{event_date}}",
+                &format!("{:0>4}-{:0>2}-{:0>2}", date.year(), date.month(), date.day()),
+            )
+            .replace("{{address1}}", &addr.addr1().map(|a| format!("{a}<br />")).unwrap_or_else(String::new))
+            .replace("{{address2}}", &addr.addr2().map(|a| format!("{a}<br />")).unwrap_or_else(String::new))
+            .replace("{{address3}}", &addr.addr3().map(|a| format!("{a}<br />")).unwrap_or_else(String::new))
+            .replace("{{city}}", addr.city)
+            .replace("{{state}}", addr.state)
+            .replace("{{zip}}", addr.zip)
     }
 }

@@ -13,5 +13,3 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 atom_syndication = "0.12"
 chrono = "0.4"
-rss = "2.0"
-html-escape = "0.2.13"
