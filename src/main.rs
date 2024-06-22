@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
-use atom_syndication::{FixedDateTime, LinkBuilder, WriteConfig};
-use chrono::{DateTime, Utc};
+use atom_syndication::{CategoryBuilder, FixedDateTime, LinkBuilder, WriteConfig};
+use chrono::{DateTime, Datelike, Utc};
 use serde::Serialize;
 
 #[tokio::main]
@@ -31,7 +31,11 @@ async fn main() {
             }
         }
     }
-    std::fs::write("events.json", serde_json::to_string_pretty(&events).unwrap().as_bytes()).unwrap();
+    std::fs::write(
+        "events.json",
+        serde_json::to_string_pretty(&events).unwrap().as_bytes(),
+    )
+    .unwrap();
     tokio::fs::create_dir_all("public").await.ok();
     to_rss(&events).unwrap();
 }
@@ -63,13 +67,23 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
             .title(ev.summary.clone())
             .published(published)
             .updated(published)
-            .link(LinkBuilder::default().href(ev.url.to_string())
-            .rel("alternate").build())
+            .link(
+                LinkBuilder::default()
+                    .href(ev.url.to_string())
+                    .rel("alternate")
+                    .build(),
+            )
             .content(
                 atom_syndication::ContentBuilder::default()
                     .lang("en-us".to_string())
                     .content_type("text".to_string())
                     .value(format!("{ev_date}\n{}\n", ev.location()))
+                    .build(),
+            )
+            .category(CategoryBuilder::default().term(ev.state()).build())
+            .category(
+                CategoryBuilder::default()
+                    .term(format!("year-{}", ev_date.year()))
                     .build(),
             )
             .build();
@@ -84,9 +98,7 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
     if last_date == DateTime::from_timestamp(0, 0).expect("0 dt") {
         last_date = Utc::now();
     }
-    let feed = feed
-        .updated(last_date)
-        .build();
+    let feed = feed.updated(last_date).build();
     let mut f = std::fs::File::options()
         .create(true)
         .write(true)
@@ -99,10 +111,14 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
         .truncate(true)
         .open("./public/rss.xml")
         .unwrap();
-    feed.write_with_config(&mut f, WriteConfig {
-        indent_size: Some(4),
-        write_document_declaration: true,
-    }).unwrap();
+    feed.write_with_config(
+        &mut f,
+        WriteConfig {
+            indent_size: Some(4),
+            write_document_declaration: true,
+        },
+    )
+    .unwrap();
     ch.build().pretty_write_to(&mut f2, b' ', 4).unwrap();
     Ok(())
 }
@@ -209,7 +225,7 @@ impl<'a> Address<'a> {
             match i {
                 0 => {
                     ret.country = seg;
-                },
+                }
                 1 => {
                     if !seg.trim().chars().all(|c| {
                         if c.is_ascii_digit() {
@@ -222,23 +238,23 @@ impl<'a> Address<'a> {
                         return None;
                     }
                     ret.zip = seg;
-                },
+                }
                 2 => {
                     if seg.len() != 2 || !seg.chars().all(|c| c.is_ascii_uppercase()) {
                         eprintln!("invalid state: `{}`\n`{}`", seg, s);
                         return None;
                     }
                     ret.state = seg;
-                },
+                }
                 3 => {
                     ret.city = seg;
-                },
+                }
                 4 => {
                     ret.addr3 = seg;
-                },
+                }
                 5 => {
                     ret.addr2 = seg;
-                },
+                }
                 6 => {
                     ret.addr1 = seg;
                 }
@@ -273,6 +289,14 @@ impl Event {
         Self::dt_from_str(&self.created)
     }
 
+    fn state(&self) -> &str {
+        let Some(addr) = Address::from(&self.location) else {
+            eprintln!("invalid address: `{}`", self.location);
+            return "UN";
+        };
+        addr.state
+    }
+
     fn dt_from_str(s: &str) -> FixedDateTime {
         let year = &s[0..4];
         let month = &s[4..6];
@@ -280,7 +304,8 @@ impl Event {
         let hour = &s[9..11];
         let minute = &s[11..13];
         let sec = &s[13..15];
-        FixedDateTime::parse_from_rfc3339(&format!("{year}-{month}-{day}T{hour}:{minute}:{sec}.0Z")).unwrap()
+        FixedDateTime::parse_from_rfc3339(&format!("{year}-{month}-{day}T{hour}:{minute}:{sec}.0Z"))
+            .unwrap()
     }
 
     fn location(&self) -> String {
