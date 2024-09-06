@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use atom_syndication::{CategoryBuilder, FixedDateTime, LinkBuilder, Text, WriteConfig};
-use chrono::{DateTime, Datelike, FixedOffset, Local, Utc};
+use chrono::{DateTime, Datelike, Local, Utc};
 use serde::Serialize;
 
 const HTML_TEMPLATE: &str = include_str!("template.html");

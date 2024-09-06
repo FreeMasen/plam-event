@@ -26,6 +26,16 @@ jobs:
       - uses: swatinem/rust-cache@v2
       - name: generate atom
         run: cargo run
+      - name: populated index.html
+        run: >-
+          echo '<!DOCTYPE html>' > public/index.html &&
+          echo '<head>' >> public/index.html &&
+          echo '<link rel="canonical" href="/atom.xml">' >> public/index.html &&
+          echo '<meta http-equiv="refresh" content="0; url=/atom.xml">' >> public/index.html &&
+          echo '</head>' >> public/index.html &&
+          echo '<body>' >> public/index.html &&
+          echo '</body>' >> public/index.html &&
+          echo '</html>' >> public/index.html
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.6.1
         # ONLY if we're on main (so no PRs or feature branches allowed!)
