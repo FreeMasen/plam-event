@@ -30,8 +30,8 @@ jobs:
         run: >-
           echo '<!DOCTYPE html>' > public/index.html &&
           echo '<head>' >> public/index.html &&
-          echo '<link rel="canonical" href="/atom.xml">' >> public/index.html &&
-          echo '<meta http-equiv="refresh" content="0; url=/atom.xml">' >> public/index.html &&
+          echo '<link rel="canonical" href="/plam-event/atom.xml">' >> public/index.html &&
+          echo '<meta http-equiv="refresh" content="0; url=/plam-event/atom.xml">' >> public/index.html &&
           echo '</head>' >> public/index.html &&
           echo '<body>' >> public/index.html &&
           echo '</body>' >> public/index.html &&
