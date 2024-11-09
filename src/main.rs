@@ -52,13 +52,9 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
                 .build(),
         )
         .id("http://gh.freemasen.com/plam-event/atom.xml");
-    let mut last_date = DateTime::from_timestamp(0, 0).expect("0 dt");
     for ev in events.values() {
         let ev_date = ev.date();
         let published = ev.created();
-        if last_date < published {
-            last_date = published.into();
-        }
         let item = atom_syndication::EntryBuilder::default()
             .id(&ev.url)
             .title(ev.summary.clone())
@@ -88,10 +84,7 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
             .build();
         feed.entry(item);
     }
-    if last_date == DateTime::from_timestamp(0, 0).expect("0 dt") {
-        last_date = Utc::now();
-    }
-    let feed = feed.updated(last_date).build();
+    let feed = feed.updated(Utc::now()).build();
     let mut f = std::fs::File::options()
         .create(true)
         .write(true)
