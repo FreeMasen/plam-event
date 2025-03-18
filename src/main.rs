@@ -55,12 +55,11 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
         .id(URL);
     for ev in events.values() {
         let ev_date = ev.date();
-        let published = ev.created();
         let item = atom_syndication::EntryBuilder::default()
             .id(&ev.url)
             .title(ev.summary.clone())
-            .published(published)
-            .updated(published)
+            .published(ev.created())
+            .updated(ev.last_modified())
             .link(
                 LinkBuilder::default()
                     .href(ev.url.to_string())
@@ -277,6 +276,10 @@ impl Event {
 
     fn created(&self) -> FixedDateTime {
         Self::dt_from_str(&self.created)
+    }
+
+    fn last_modified(&self) -> FixedDateTime {
+        Self::dt_from_str(&self.last_modified)
     }
 
     fn address(&self) -> Address {
