@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use atom_syndication::{CategoryBuilder, Feed, FixedDateTime, LinkBuilder, Text, WriteConfig};
+use atom_syndication::{CategoryBuilder, FixedDateTime, LinkBuilder, Text, WriteConfig};
 use chrono::{Datelike, Local, Utc};
 use serde::Serialize;
 
