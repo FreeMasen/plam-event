@@ -1,10 +1,11 @@
 use std::collections::HashMap;
 
-use atom_syndication::{CategoryBuilder, FixedDateTime, LinkBuilder, Text, WriteConfig};
-use chrono::{DateTime, Datelike, Local, Utc};
+use atom_syndication::{CategoryBuilder, Feed, FixedDateTime, LinkBuilder, Text, WriteConfig};
+use chrono::{Datelike, Local, Utc};
 use serde::Serialize;
 
 const HTML_TEMPLATE: &str = include_str!("template.html");
+const URL: &str = "http://gh.freemasen.com/plam-event/atom.xml";
 
 #[tokio::main]
 async fn main() {
@@ -34,10 +35,10 @@ async fn main() {
         }
     }
     std::fs::write(
-        "events.json",
+        "public/events.json",
         serde_json::to_string_pretty(&events).unwrap().as_bytes(),
     )
-    .unwrap();
+    .ok();
     tokio::fs::create_dir_all("public").await.ok();
     to_rss(&events).unwrap();
 }
@@ -47,11 +48,11 @@ fn to_rss(events: &HashMap<String, Event>) -> Result<(), Box<dyn std::error::Err
     feed.title("Power Lifting America Events")
         .link(
             LinkBuilder::default()
-                .href("http://gh.freemasen.com/plam-event/atom.xml")
+                .href(URL)
                 .rel("self")
                 .build(),
         )
-        .id("http://gh.freemasen.com/plam-event/atom.xml");
+        .id(URL);
     for ev in events.values() {
         let ev_date = ev.date();
         let published = ev.created();
