@@ -1,0 +1,517 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Power Lifting America Events</title>
+    <id>http://gh.freemasen.com/plam-event/atom.xml</id>
+    <updated>2026-09-05T22:29:46.737762890+00:00</updated>
+    <link href="http://gh.freemasen.com/plam-event/atom.xml" rel="self"/>
+    <entry>
+        <title>Powerlifting America Avancus Houston Open</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-avancus-houston-open/</id>
+        <updated>2026-09-01T19:06:38+00:00</updated>
+        <category term="TX"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-avancus-houston-open/" rel="alternate"/>
+        <published>2026-05-21T22:27:47+00:00</published>
+        <summary>2026-9-5 (TX) Powerlifting America Avancus Houston Open</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-avancus-houston-open/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Stafford Center&lt;br /&gt;
+10505 Cash Rd&lt;br /&gt;
+Stafford, TX 77477
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Carolina Carnage III</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-carolina-carnage-iii/</id>
+        <updated>2026-08-29T20:36:38+00:00</updated>
+        <category term="NC"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-carolina-carnage-iii/" rel="alternate"/>
+        <published>2026-03-30T17:37:55+00:00</published>
+        <summary>2026-9-5 (NC) Powerlifting America Carolina Carnage III</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-carolina-carnage-iii/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Pride Conditioning&lt;br /&gt;
+337 Dalton Ave&lt;br /&gt;
+Charlotte, NC 28206
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America OSUPL Alumni Meet</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-osupl-alumni-meet/</id>
+        <updated>2026-06-05T18:56:53+00:00</updated>
+        <category term="OH"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-osupl-alumni-meet/" rel="alternate"/>
+        <published>2026-06-05T18:56:53+00:00</published>
+        <summary>2026-9-5 (OH) Powerlifting America OSUPL Alumni Meet</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-osupl-alumni-meet/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Pinnacle Performance&lt;br /&gt;
+640 West Rich St&lt;br /&gt;
+Columbus, OH 43215
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Haunted Barbell Bash</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-haunted-barbell-bash/</id>
+        <updated>2026-08-29T20:34:52+00:00</updated>
+        <category term="WI"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-haunted-barbell-bash/" rel="alternate"/>
+        <published>2026-02-05T05:59:04+00:00</published>
+        <summary>2026-9-5 (WI) Powerlifting America Haunted Barbell Bash</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-haunted-barbell-bash/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Waukesha South High School&lt;br /&gt;
+401 E Roberta Ave&lt;br /&gt;
+Waukesha, WI 53186
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>2026 Powerlifting America Senkai Showdown</title>
+        <id>https://powerlifting-america.com/event/2026-powerlifting-america-senkai-showdown/</id>
+        <updated>2026-07-31T07:23:03+00:00</updated>
+        <category term="FL"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/2026-powerlifting-america-senkai-showdown/" rel="alternate"/>
+        <published>2026-03-15T23:48:14+00:00</published>
+        <summary>2026-9-5 (FL) 2026 Powerlifting America Senkai Showdown</summary>
+        <content xml:base="https://powerlifting-america.com/event/2026-powerlifting-america-senkai-showdown/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Senkai Strength&lt;br /&gt;
+616 N Main St&lt;br /&gt;
+Gainesville, FL 32601
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Michigan Invitational</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-michigan-invitational/</id>
+        <updated>2025-08-19T23:51:22+00:00</updated>
+        <category term="MI"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-michigan-invitational/" rel="alternate"/>
+        <published>2025-08-10T03:59:02+00:00</published>
+        <summary>2026-9-5 (MI) Powerlifting America Michigan Invitational</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-michigan-invitational/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Raw Strength Kalamazoo&lt;br /&gt;
+300 E. Centre Ave.&lt;br /&gt;
+Portage, MI 49002
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>2026 Powerlifting America Tennessee State Championships</title>
+        <id>https://powerlifting-america.com/event/2026-powerlifting-america-tennessee-state-championships/</id>
+        <updated>2026-08-29T20:11:06+00:00</updated>
+        <category term="TN"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/2026-powerlifting-america-tennessee-state-championships/" rel="alternate"/>
+        <published>2026-04-23T17:19:09+00:00</published>
+        <summary>2026-9-5 (TN) 2026 Powerlifting America Tennessee State Championships</summary>
+        <content xml:base="https://powerlifting-america.com/event/2026-powerlifting-america-tennessee-state-championships/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+The Steel Room (TN)&lt;br /&gt;
+403 S. Washington St&lt;br /&gt;
+Maryville, TN 37804
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Compound Classic 2026</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-compound-classic-2026/</id>
+        <updated>2026-08-29T20:32:26+00:00</updated>
+        <category term="TX"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-compound-classic-2026/" rel="alternate"/>
+        <published>2026-03-13T06:19:26+00:00</published>
+        <summary>2026-9-5 (TX) Powerlifting America Compound Classic 2026</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-compound-classic-2026/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Compound Gym&lt;br /&gt;
+7523 South Fwy&lt;br /&gt;
+Houston, TX 77021
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Lark Invitational</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-lark-invitational-2/</id>
+        <updated>2026-09-05T18:13:59+00:00</updated>
+        <category term="KS"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-lark-invitational-2/" rel="alternate"/>
+        <published>2026-09-05T18:13:59+00:00</published>
+        <summary>2026-9-5 (KS) Powerlifting America Lark Invitational</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-lark-invitational-2/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Yost Center&lt;br /&gt;
+325 S College Drive&lt;br /&gt;
+Hesston, KS 67062
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America New Jersey State Championships</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-new-jersey-state-championships/</id>
+        <updated>2026-08-29T20:07:34+00:00</updated>
+        <category term="NJ"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-new-jersey-state-championships/" rel="alternate"/>
+        <published>2026-06-15T21:22:04+00:00</published>
+        <summary>2026-9-5 (NJ) Powerlifting America New Jersey State Championships</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-new-jersey-state-championships/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+9 Whippany Rd&lt;br /&gt;
+Building A&lt;br /&gt;
+Unit 9&lt;br /&gt;
+Whippany, NJ 07981
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Red Dirt Classic</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-red-dirt-classic/</id>
+        <updated>2026-08-29T20:08:19+00:00</updated>
+        <category term="OK"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-red-dirt-classic/" rel="alternate"/>
+        <published>2026-07-09T04:25:44+00:00</published>
+        <summary>2026-9-5 (OK) Powerlifting America Red Dirt Classic</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-red-dirt-classic/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Brewhouse Barbell&lt;br /&gt;
+1124 NW 51st St&lt;br /&gt;
+Oklahoma City, OK 73118
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Granite State Grand Prix VIII</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-granite-state-grand-prix-viii/</id>
+        <updated>2026-08-29T20:03:59+00:00</updated>
+        <category term="NH"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-granite-state-grand-prix-viii/" rel="alternate"/>
+        <published>2026-04-03T23:22:58+00:00</published>
+        <summary>2026-9-5 (NH) Powerlifting America Granite State Grand Prix VIII</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-granite-state-grand-prix-viii/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Performance Health And Fitness&lt;br /&gt;
+301 Jaffrey Road&lt;br /&gt;
+Peterborough, NH 03458
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>2026 Powerlifting America TSS H-Town Showdown</title>
+        <id>https://powerlifting-america.com/event/2026-powerlifting-america-tss-h-town-showdown/</id>
+        <updated>2026-08-29T20:38:12+00:00</updated>
+        <category term="TX"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/2026-powerlifting-america-tss-h-town-showdown/" rel="alternate"/>
+        <published>2026-03-26T17:31:50+00:00</published>
+        <summary>2026-9-5 (TX) 2026 Powerlifting America TSS H-Town Showdown</summary>
+        <content xml:base="https://powerlifting-america.com/event/2026-powerlifting-america-tss-h-town-showdown/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+TSS Houston&lt;br /&gt;
+16271 N Fwy Service Rd&lt;br /&gt;
+Houston, TX 77090
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America 7th Annual New Mexico State Fair Bench Press Deadlift and Powerlifting Championships</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-7th-annual-new-mexico-state-fair-bench-press-deadlift-and-powerlifting-championships/</id>
+        <updated>2026-08-15T14:42:29+00:00</updated>
+        <category term="NM"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-7th-annual-new-mexico-state-fair-bench-press-deadlift-and-powerlifting-championships/" rel="alternate"/>
+        <published>2025-10-30T07:00:17+00:00</published>
+        <summary>2026-9-5 (NM) Powerlifting America 7th Annual New Mexico State Fair Bench Press Deadlift and Powerlifting Championships</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-7th-annual-new-mexico-state-fair-bench-press-deadlift-and-powerlifting-championships/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Expo New Mexico&lt;br /&gt;
+300 San Pedro Dr NE&lt;br /&gt;
+Albuquerque, NM 87108
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Power In The Pines</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-power-in-the-pines/</id>
+        <updated>2026-07-31T07:39:59+00:00</updated>
+        <category term="AZ"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-power-in-the-pines/" rel="alternate"/>
+        <published>2026-01-25T23:34:32+00:00</published>
+        <summary>2026-9-5 (AZ) Powerlifting America Power In The Pines</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-power-in-the-pines/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Crossfit Flagstaff&lt;br /&gt;
+1072 East Old Canyon Ct.&lt;br /&gt;
+Flagstaff, AZ 86001
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Youngsville Classic</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-born-on-the-bayou/</id>
+        <updated>2026-07-31T07:37:58+00:00</updated>
+        <category term="LA"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-born-on-the-bayou/" rel="alternate"/>
+        <published>2025-08-18T23:51:04+00:00</published>
+        <summary>2026-9-5 (LA) Powerlifting America Youngsville Classic</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-born-on-the-bayou/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Youngsville Sports Complex&lt;br /&gt;
+801 Savoy Road&lt;br /&gt;
+Youngsville, LA 70592
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Madtown Throwdown</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-madtown-throwdown/</id>
+        <updated>2026-08-29T20:05:54+00:00</updated>
+        <category term="WI"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-madtown-throwdown/" rel="alternate"/>
+        <published>2025-12-11T07:31:59+00:00</published>
+        <summary>2026-9-5 (WI) Powerlifting America Madtown Throwdown</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-madtown-throwdown/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+Bakke Athletics&lt;br /&gt;
+2881 Commerce Park&lt;br /&gt;
+Suite B&lt;br /&gt;
+Fitchburg, WI 53719
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Buckeye Brawl IV</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-buckeye-brawl-iv/</id>
+        <updated>2026-07-25T22:26:29+00:00</updated>
+        <category term="OH"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-buckeye-brawl-iv/" rel="alternate"/>
+        <published>2026-05-02T23:02:53+00:00</published>
+        <summary>2026-9-5 (OH) Powerlifting America Buckeye Brawl IV</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-buckeye-brawl-iv/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+The Academy of Sports Performance (ASP)&lt;br /&gt;
+4385 Creek Rd&lt;br /&gt;
+Cincinnati, OH 45241
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>2026 Powerlifting America Scary Strong V</title>
+        <id>https://powerlifting-america.com/event/2026-powerlifting-america-scary-strong-v/</id>
+        <updated>2026-08-29T20:37:18+00:00</updated>
+        <category term="MA"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/2026-powerlifting-america-scary-strong-v/" rel="alternate"/>
+        <published>2026-02-27T04:51:04+00:00</published>
+        <summary>2026-9-5 (MA) 2026 Powerlifting America Scary Strong V</summary>
+        <content xml:base="https://powerlifting-america.com/event/2026-powerlifting-america-scary-strong-v/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Oasis Powerlifting Club&lt;br /&gt;
+100 Business St Lower Level A&lt;br /&gt;
+Hyde Park, MA 02136
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Haunted Platform</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-haunted-platform/</id>
+        <updated>2026-08-29T20:34:13+00:00</updated>
+        <category term="IN"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-haunted-platform/" rel="alternate"/>
+        <published>2026-07-06T17:15:31+00:00</published>
+        <summary>2026-9-5 (IN) Powerlifting America Haunted Platform</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-haunted-platform/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+Circle City Strength&lt;br /&gt;
+2495 Directors Row&lt;br /&gt;
+Suite EF&lt;br /&gt;
+Indianapolis, IN 46241
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Back 2 School Bash</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-back-2-school-bash/</id>
+        <updated>2026-08-29T20:04:46+00:00</updated>
+        <category term="IL"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-back-2-school-bash/" rel="alternate"/>
+        <published>2026-07-20T02:49:08+00:00</published>
+        <summary>2026-9-5 (IL) Powerlifting America Back 2 School Bash</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-back-2-school-bash/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Jack D. Trager Athletic Performance and Training Center&lt;br /&gt;
+105 E College Ave&lt;br /&gt;
+Greenville, IL 62246
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>8th Annual Powerlifting America Ocala Open Iron Legion Championships</title>
+        <id>https://powerlifting-america.com/event/8th-annual-powerlifting-america-ocala-open-iron-legion-championships/</id>
+        <updated>2026-07-31T07:24:58+00:00</updated>
+        <category term="FL"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/8th-annual-powerlifting-america-ocala-open-iron-legion-championships/" rel="alternate"/>
+        <published>2026-01-22T06:23:19+00:00</published>
+        <summary>2026-9-5 (FL) 8th Annual Powerlifting America Ocala Open Iron Legion Championships</summary>
+        <content xml:base="https://powerlifting-america.com/event/8th-annual-powerlifting-america-ocala-open-iron-legion-championships/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+Iron Legion Strength + Combat&lt;br /&gt;
+217 SE 1st Ave&lt;br /&gt;
+Suite #100&lt;br /&gt;
+Ocala, FL 34471
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>2026 Powerlifting America Red Stick Classic</title>
+        <id>https://powerlifting-america.com/event/2026-powerlifting-america-red-stick-classic/</id>
+        <updated>2026-08-29T20:10:17+00:00</updated>
+        <category term="LA"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/2026-powerlifting-america-red-stick-classic/" rel="alternate"/>
+        <published>2026-07-02T17:59:45+00:00</published>
+        <summary>2026-9-5 (LA) 2026 Powerlifting America Red Stick Classic</summary>
+        <content xml:base="https://powerlifting-america.com/event/2026-powerlifting-america-red-stick-classic/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+D1 Training Baton Rouge&lt;br /&gt;
+6401 Bluebonnet Blvd Suite 505&lt;br /&gt;
+Baton Rouge, LA 70836
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Halloween Havoc</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-halloween-havoc/</id>
+        <updated>2026-08-29T20:35:49+00:00</updated>
+        <category term="PA"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-halloween-havoc/" rel="alternate"/>
+        <published>2026-03-13T23:29:48+00:00</published>
+        <summary>2026-9-5 (PA) Powerlifting America Halloween Havoc</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-halloween-havoc/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+PWRBLD Gym (Warrington)&lt;br /&gt;
+1661 Easton Road&lt;br /&gt;
+Warrington, PA 18976
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America 5W Midwest Showdown II</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-5w-midwest-showdown-ii/</id>
+        <updated>2026-08-29T20:39:57+00:00</updated>
+        <category term="IL"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-5w-midwest-showdown-ii/" rel="alternate"/>
+        <published>2026-04-26T20:48:43+00:00</published>
+        <summary>2026-9-5 (IL) Powerlifting America 5W Midwest Showdown II</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-5w-midwest-showdown-ii/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Zhou B Art Center&lt;br /&gt;
+1029 W 35th St&lt;br /&gt;
+Chicago, IL 60609
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Overload Classic V</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-overload-classic-v/</id>
+        <updated>2026-08-29T20:39:01+00:00</updated>
+        <category term="NM"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-overload-classic-v/" rel="alternate"/>
+        <published>2025-12-14T01:31:45+00:00</published>
+        <summary>2026-9-5 (NM) Powerlifting America Overload Classic V</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-overload-classic-v/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Overload Gym&lt;br /&gt;
+851 W San Mateo Rd Unit 5&lt;br /&gt;
+Santa Fe, NM 87505
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>9th Annual Powerlifting America North Florida Open Championships</title>
+        <id>https://powerlifting-america.com/event/9th-annual-powerlifting-america-north-florida-open-championships/</id>
+        <updated>2026-07-31T07:23:57+00:00</updated>
+        <category term="FL"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/9th-annual-powerlifting-america-north-florida-open-championships/" rel="alternate"/>
+        <published>2026-01-22T06:37:24+00:00</published>
+        <summary>2026-9-5 (FL) 9th Annual Powerlifting America North Florida Open Championships</summary>
+        <content xml:base="https://powerlifting-america.com/event/9th-annual-powerlifting-america-north-florida-open-championships/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Steel Mill Strength and Wellness&lt;br /&gt;
+2320 Market Drive&lt;br /&gt;
+Fleming Island, FL 32003
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Mississippi State Championship 2026</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-mississippi-state-championship-2026/</id>
+        <updated>2026-08-29T20:06:39+00:00</updated>
+        <category term="MS"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-mississippi-state-championship-2026/" rel="alternate"/>
+        <published>2026-03-02T04:52:51+00:00</published>
+        <summary>2026-9-5 (MS) Powerlifting America Mississippi State Championship 2026</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-mississippi-state-championship-2026/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Seige MMA and Performance&lt;br /&gt;
+3600 Hardy St unit 32&lt;br /&gt;
+Hattiesburg, MS 39402
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>2026 Hands Across the Sea</title>
+        <id>https://powerlifting-america.com/event/2026-hands-across-the-sea-international-powerlifting-invitational/</id>
+        <updated>2026-08-29T20:12:24+00:00</updated>
+        <category term="NV"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/2026-hands-across-the-sea-international-powerlifting-invitational/" rel="alternate"/>
+        <published>2026-07-12T20:21:51+00:00</published>
+        <summary>2026-9-5 (NV) 2026 Hands Across the Sea</summary>
+        <content xml:base="https://powerlifting-america.com/event/2026-hands-across-the-sea-international-powerlifting-invitational/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+The Reno Ballroom&lt;br /&gt;
+401 N Center St&lt;br /&gt;
+Reno, NV 89501
+&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Powerlifting America Avancus Houston 2026</title>
+        <id>https://powerlifting-america.com/event/powerlifting-america-avancus-houston-2026/</id>
+        <updated>2026-08-29T20:30:47+00:00</updated>
+        <category term="TX"/>
+        <category term="year-2026"/>
+        <link href="https://powerlifting-america.com/event/powerlifting-america-avancus-houston-2026/" rel="alternate"/>
+        <published>2026-07-12T19:49:17+00:00</published>
+        <summary>2026-9-5 (TX) Powerlifting America Avancus Houston 2026</summary>
+        <content xml:base="https://powerlifting-america.com/event/powerlifting-america-avancus-houston-2026/" xml:lang="en-us" type="html">&lt;p&gt;2026-09-05&lt;br/&gt;
+
+Stafford Centre&lt;br /&gt;
+10505 Cash Rd&lt;br /&gt;
+Stafford, TX 77477
+&lt;/p&gt;
+</content>
+    </entry>
+</feed>
